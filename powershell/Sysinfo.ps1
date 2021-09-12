@@ -6,8 +6,8 @@ $IP = getIP
 write-host("This machine's IP is $IP")
 
 $USER = $env:USERNAME
-$Host = GetHost
-$HOST = GetHOST.Version
+$HOST = GetHost
+$VERSION = GetHOST.Version
 $DATE = Get-Date -Format "dddd MM/dd/yyyy"
 
 Send-MailMessage -To "beckwilb@mail.uc.edu" -From "Luke.Beckwith93@gmail.com" -Subject "it3080c"
