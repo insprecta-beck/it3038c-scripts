@@ -13,4 +13,4 @@ $DATE = Get-Date -Format "dddd MM/dd/yyyy"
 Send-MailMessage -To "beckwilb@mail.uc.edu" -From "Luke.Beckwith93@gmail.com" -Subject "it3080c"
 -Body $BODY -SmtpServer smtp.gmail.com -port 587 UseSsl -Credential (Get-Credential)
 
-$BODY = "This machine's IP is $IP. User is $USER. Hostname is $Host. $HOST. Today's Date is $DATE."
+$BODY = "This machine's IP is $IP. User is $USER. Hostname is $HOST. $VERSION. Today's Date is $DATE."
