@@ -18,13 +18,7 @@ print("Document must be in Downloads folder.\n")
 
 docx_file = input(" Please input docx filename (without .docx): ")
 
-document = Document("Please enter the file pathway of  " + docx_file + ".docx, to help me find it.")
-s = raw_input()
-
-if os.path.isdir(s):
-    f = open(s, "r+")
-else:
-    print "Directory not exists."
+document = Document("/Users/lukeb/Downloads/" + docx_file + ".docx")
 
 out_file = input(" Please enter the name of excel file (without .xls): ")
 
