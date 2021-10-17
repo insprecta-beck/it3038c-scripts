@@ -2,6 +2,27 @@ var fs = require("fs");
 var http = require('http');
 var ip = require('ip');
 var os = require('os');
+<<<<<<< HEAD
+=======
+function format(seconds){
+    function pad(s){
+      return (s < 10 ? '0' : '') + s;
+    }
+    var hours = Math.floor(seconds / (60*60));
+    var minutes = Math.floor(seconds % (60*60) / 60);
+    var seconds = Math.floor(seconds % 60);
+  
+    return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
+  }
+  
+var uptime = process.uptime();
+console.log(format(uptime));
+
+console.log('RAM: ', os.totalmem());
+console.log('Free RAM: ', os.freemem());
+
+const cpuCount = os.cpus().length
+>>>>>>> 89d8a38672dcdbd6e94f013f541a33b3b1fe9fae
 
 var server = http.createServer(function(req, res){
     if (req.url === "/") {
@@ -21,10 +42,17 @@ var server = http.createServer(function(req, res){
                 <body>
                 <p>Hostname: ${myHostName}</p>
                 <p>IP: ${ip.address()}</p>
+<<<<<<< HEAD
                 <p>Server Uptime: </p>
                 <p>Total Memory: </p>
                 <p>Free Memory: </p>
                 <p>Number of CPUs: </p>
+=======
+                <p>Server Uptime: ${format(uptime)}</p>
+                <p>Total Memory: ${os.totalmem()}</p>
+                <p>Free Memory: ${os.freemem()}</p>
+                <p>Number of CPUs: ${os.cpus().length}</p>
+>>>>>>> 89d8a38672dcdbd6e94f013f541a33b3b1fe9fae
                 </body>
         </html>    
         `
