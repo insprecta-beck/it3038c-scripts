@@ -1,8 +1,11 @@
+##This script ingests .docx files, scrapes hyperlinks, 
+# and appends them to.xls files
+
 ##unfinished updating this script to import pdfs too
 # importing dependencies for word doc
+import os
 from docx import Document
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
-
 
 # importing dependencies for excel sheet
 import xlwt
@@ -12,19 +15,11 @@ sheet = workbook.add_sheet("scraped_links")
 #specifying style
 style = xlwt.easyxf('font: bold 1')
 
+print("\n This program scrapes hyperlinks in a word .docx file, and puts them into a spreadsheet.\n")
+print("\nYou'll need to type out the entire filepath where your .docx file is located. i.e - /Users/Username/Downloads/Filename.docx\n")
+docx_file = input(" Please type the full filepath of the .docx file you are looking to scrape.\n")
 
-print("\n This program changes the hyperlinks detected in a word .docx file \n")
-print("Document must be in Downloads folder.\n")
-
-docx_file = input(" Please input docx filename (without .docx): ")
-
-document = Document("Please enter the file pathway of  " + docx_file + ".docx, to help me find it.")
-s = raw_input()
-
-if os.path.isdir(s):
-    f = open(s, "r+")
-else:
-    print "Directory not exists."
+worddocument = Document(docx_file)
 
 out_file = input(" Please enter the name of excel file (without .xls): ")
 
@@ -47,3 +42,13 @@ print("\n There are ", len(links), "hyperlinks in this document.")
 
 
 print("\n File saved to:", out_file + ".xls")
+
+path = os.getcwd()+"/"+out_file
+fp = open(path, 'r+');
+
+fp = new_func(path)
+
+for line in fp:
+    print(line)
+
+exit()
