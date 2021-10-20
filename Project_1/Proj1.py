@@ -19,7 +19,7 @@ print("\n This program scrapes hyperlinks in a word .docx file, and puts them in
 print("\nYou'll need to type out the entire filepath where your .docx file is located. i.e - /Users/Username/Downloads/Filename.docx\n")
 docx_file = input(" Please type the full filepath of the .docx file you are looking to scrape.\n")
 
-worddocument = Document(docx_file)
+document = Document(docx_file)
 
 out_file = input(" Please enter the name of excel file (without .xls): ")
 
@@ -42,13 +42,5 @@ print("\n There are ", len(links), "hyperlinks in this document.")
 
 
 print("\n File saved to:", out_file + ".xls")
-
-path = os.getcwd()+"/"+out_file
-fp = open(path, 'r+');
-
-fp = new_func(path)
-
-for line in fp:
-    print(line)
 
 exit()
