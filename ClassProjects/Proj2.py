@@ -1,7 +1,6 @@
 #This script ingests .docx files, scrapes hyperlinks & appends them to.xls files
-#View the README.md for updated from Proj1 file.
+#View the README.md page in ClassProjects for more on how to use this script.
 
-#Future Updates: import pdfs using pyPDF2 also.
 # importing dependencies for word doc
 from docx import Document
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
