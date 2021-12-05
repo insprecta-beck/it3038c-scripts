@@ -1,7 +1,6 @@
-##This script ingests .docx files, scrapes hyperlinks, 
-# and appends them to.xls files
+#This script ingests .docx files, scrapes hyperlinks & appends them to.xls files
+#View the README.md page in ClassProjects for more on how to use this script.
 
-##unfinished updating this script to import pdfs too.
 # importing dependencies for word doc
 from docx import Document
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
@@ -10,27 +9,6 @@ from docx.opc.constants import RELATIONSHIP_TYPE as RT
 import requests
 from requests import head
 
-# importing dependencies for PDFs
-import PyPDF2
-import re
-# Open The File in the Command
-file = open
-readPDF = PyPDF2.PdfFileReader(file)
-def find_url(string):
-   #Find all the String that matches with the pattern
-   regex = r"(https?://)"
-   url = re.findall(regex,string)
-   for url in url:
-      return url
-# Iterating over all the pages of File
-for page_no in range(readPDF.numPages):
-   page=readPDF.getPage(page_no)
-   #Extract the text from the page
-   text = page.extractText()
-   # Print all URL
-   print(find_url(text))
-# CLost the file
-file.close()
 # importing dependencies for excel sheet
 import xlwt
 workbook = xlwt.Workbook()

@@ -1,5 +1,24 @@
-#This script ingests .docx files, scrapes hyperlinks & appends them to.xls files
-#View the README.md page in ClassProjects for more on how to use this script.
+##This script ingests .docx files, scrapes hyperlinks, 
+# and appends them to.xls files
+
+#Importing dependencies for GUI
+import tkinter as tk
+from tkinter import Canvas, filedialog, Text
+import os
+
+root = tk.Tk()
+
+def getFile():
+    filename= filedialog.askopenfilename(initialdir="/", title="Select File",
+    filetypes=(("wordDocs", "*.docx"), ("all files", "*.*")))
+
+Canvas = Canvas = tk.Canvas(root, height=700, width=700, bg="#263D42")
+Canvas.pack()
+
+openFile = tk.Button(root, text="Open file", padx=10, pady=5, fg="#0F4090", bg="white", command=getFile)
+openFile.pack()
+
+root.mainloop()
 
 # importing dependencies for word doc
 from docx import Document
@@ -9,6 +28,27 @@ from docx.opc.constants import RELATIONSHIP_TYPE as RT
 import requests
 from requests import head
 
+# importing dependencies for PDFs
+import PyPDF2
+import re
+# Open The File in the Command
+file = open
+readPDF = PyPDF2.PdfFileReader(file)
+def find_url(string):
+   #Find all the String that matches with the pattern
+   regex = r"(https?://)"
+   url = re.findall(regex,string)
+   for url in url:
+      return url
+# Iterating over all the pages of File
+for page_no in range(readPDF.numPages):
+   page=readPDF.getPage(page_no)
+   #Extract the text from the page
+   text = page.extractText()
+   # Print all URL
+   print(find_url(text))
+# Close the file
+file.close()
 # importing dependencies for excel sheet
 import xlwt
 workbook = xlwt.Workbook()
